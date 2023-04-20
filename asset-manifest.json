@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/WixProject/static/css/main.40527267.css",
+    "main.js": "/WixProject/static/js/main.ad5cf26f.js",
+    "static/js/787.dfdaa5d2.chunk.js": "/WixProject/static/js/787.dfdaa5d2.chunk.js",
+    "static/media/sn.mp4": "/WixProject/static/media/sn.2103655a0a4bb4cc2bc5.mp4",
+    "static/media/vd.mp4": "/WixProject/static/media/vd.a49e3b51bc31ac344e0c.mp4",
+    "static/media/vd2.mp4": "/WixProject/static/media/vd2.4fa25ef0d43fc7dfed6a.mp4",
+    "static/media/vd1.mp4": "/WixProject/static/media/vd1.badc8249486f549e4208.mp4",
+    "static/media/p1.jpg": "/WixProject/static/media/p1.f107bf0fd2c738a55d3e.jpg",
+    "static/media/p2.png": "/WixProject/static/media/p2.65616ee9a0e56137024e.png",
+    "static/media/p3.png": "/WixProject/static/media/p3.3a569982a0e1fd2396af.png",
+    "static/media/p4.png": "/WixProject/static/media/p4.3d3ddb7207f140c6f36d.png",
+    "static/media/p5.png": "/WixProject/static/media/p5.bc03634b01000d0c5985.png",
+    "index.html": "/WixProject/index.html",
+    "main.40527267.css.map": "/WixProject/static/css/main.40527267.css.map",
+    "main.ad5cf26f.js.map": "/WixProject/static/js/main.ad5cf26f.js.map",
+    "787.dfdaa5d2.chunk.js.map": "/WixProject/static/js/787.dfdaa5d2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.40527267.css",
+    "static/js/main.ad5cf26f.js"
+  ]
+}
