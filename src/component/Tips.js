@@ -1,6 +1,8 @@
 import { Box, Center, Container, Grid, Text, createStyles } from '@mantine/core'
-import React from 'react'
+import React, { useEffect } from 'react'
 import FooterSection from './FooterSection'
+import'aos/dist/aos.css';
+import Aos from 'aos';
 import NavBar from './NavBar'
 const useStyle = createStyles((theme) => ({
   tips: {
@@ -45,35 +47,33 @@ const useStyle = createStyles((theme) => ({
 
 }))
 export default function Tips() {
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+}, [])
   const { classes } = useStyle()
   return (
     <>
      <NavBar />
       <Box id='tips' className={classes.tips}>
         <Grid m={0} p={0}>
-          <Grid.Col p={0} m={0} md={6} >
+          <Grid.Col p={0} m={0} md={6} data-Aos="zoom-in">
             <Box className={classes.tipsBox1}>
-              <Text >
+              <Text data-Aos="fade-up" >
                 Moving <br /> Tips</Text>
             </Box>
           </Grid.Col >
-          <Grid.Col p={0} m={0} md={6} sm={12}>
+          <Grid.Col p={0} m={0} md={6} sm={12} data-Aos="zoom-in">
             <Box className={classes.tipsBox2} >
-              <Text>
-
+              <Text data-Aos="fade-up">
                 I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font.
-
-
               </Text>
             </Box>
-
           </Grid.Col>
-
         </Grid >
         <Container size="90%" mt={50}>
           <Grid p={0} m={0} mt={50} >
-            <Grid.Col md={6} lg={6}>
-              <Box sx={(theme) => ({
+            <Grid.Col md={6} lg={6} data-Aos="zoom-in">
+              <Box  sx={(theme) => ({
                 background: "black",
                 color: "#fff",
                 textAlign: "center",
@@ -83,7 +83,7 @@ export default function Tips() {
 
 
               })}>
-                <Text>
+                <Text data-Aos="fade-up">
                   <span className={classes.aboutPacking}>
                     MAKE A LIST
                   </span>
@@ -92,7 +92,7 @@ export default function Tips() {
                 </Text>
               </Box>
             </Grid.Col>
-            <Grid.Col md={6} lg={6}>
+            <Grid.Col md={6} lg={6} data-Aos="zoom-in"> 
               <Box sx={(theme) => ({
                 background: "#ff5829",
                 color: "#fff",
@@ -103,7 +103,7 @@ export default function Tips() {
 
 
               })}>
-                <Text>
+                <Text data-Aos="fade-up">
                   <span className={classes.aboutPacking}>
 
                     SAY GOODBYE TO UNUSED STUFF
@@ -112,7 +112,7 @@ export default function Tips() {
                   I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.
                 </Text>
               </Box>
-            </Grid.Col><Grid.Col md={6} lg={6}>
+            </Grid.Col><Grid.Col md={6} lg={6} data-Aos="zoom-in">
               <Box sx={(theme) => ({
                 background: "#ff5829",
                 color: "#fff",
@@ -123,7 +123,7 @@ export default function Tips() {
 
 
               })}>
-                <Text>
+                <Text data-Aos="fade-up">
                   <span className={classes.aboutPacking}>
 
                     GET STURDY, UNIFORM PACKING SUPPLIES
@@ -133,7 +133,7 @@ export default function Tips() {
                 </Text>
               </Box>
             </Grid.Col>
-            <Grid.Col md={6} lg={6}>
+            <Grid.Col md={6} lg={6} data-Aos="zoom-in">
               <Box sx={(theme) => ({
                 background: "black",
                 color: "#fff",
@@ -144,7 +144,7 @@ export default function Tips() {
 
 
               })}>
-                <Text>
+                <Text data-Aos="fade-up">
                   <span className={classes.aboutPacking}>
                     PACK THE BASICS YOURSELF
                   </span>

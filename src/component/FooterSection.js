@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
 
     Footer,
@@ -12,54 +12,26 @@ import {
     TextInput,
     PasswordInput,
     Button,
-    Flex,
+
 
 } from '@mantine/core';
+import Aos from 'aos';
+import "aos/dist/aos.css"
 
-const useStyle = createStyles((theme) => ({
-    formBox: {
-        background: "#ff5829",
-
-        color: "#fff",
-
-    },
-    contact: {
-        // padding: "15%",
-        background: "#ff5829",
-        color: "#fff",
-
-    },
-    textCenter: {
-        height: "100%",
-        // background: "red",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-
-
-    },
-    mainText: {
-        fontSize: "350%",
-        verticalAlign: "middle",
-        fontWeight: 700,
-    },
-
-    formSection: {
-        height: "100%",
-        // width: "50%",
-        // background: "red"
-    }
-}))
 export default function FooterSection() {
+    useEffect(()=>{
+        Aos.init({duration :2000})
+
+    },[])
     const { classes } = useStyle()
     return (
         <>
             <Box className={classes.formBox}>
-                <Container size="90%" p={50}>
-                    <Grid m={0} p={0}>
-                        <Grid.Col m={0} p={0} md={6} lg={6}>
+                <Container size="90%" p={50} >
+                    <Grid m={0} p={0} >
+                        <Grid.Col m={0} p={0} md={6} lg={6} >
                             <Box className={classes.textCenter}>
-                                <Text className={classes.mainText}>Get Your Free <br /> Quote <br /> <Text style={{ color: "black", fontSize: "16px", fontWeight: "normal" }}>I'm a paragraph. Click here to add your own <br /> text and edit me. It's easy.   </Text></Text>
+                                <Text data-Aos="fade-up" className={classes.mainText}>Get Your Free <br /> Quote <br /> <Text style={{ color: "black", fontSize: "16px", fontWeight: "normal" }}>I'm a paragraph. Click here to add your own <br /> text and edit me. It's easy.   </Text></Text>
                             </Box>
                         </Grid.Col>
                         <Grid.Col md={6} lg={6} >
@@ -68,7 +40,7 @@ export default function FooterSection() {
                                     <Grid>
 
 
-                                        <Grid.Col md={6} lg={6}>
+                                        <Grid.Col md={6} lg={6} data-Aos="fade-up">
 
 
                                             <Box mt="lg" mx="auto" >
@@ -122,7 +94,7 @@ export default function FooterSection() {
             <Box style={{ background: "black", color: "#fff" }}>
                 <Container size="90%" p={50}>
                     <Grid>
-                        <Grid.Col md={3}>
+                        <Grid.Col md={3} data-Aos="zoom-in">
                             <Center>
 
 
@@ -140,7 +112,7 @@ export default function FooterSection() {
                                 </List>
                             </Center>
                         </Grid.Col>
-                        <Grid.Col md={3}>
+                        <Grid.Col md={3} data-Aos="zoom-in">
                             <Center>
 
 
@@ -158,7 +130,7 @@ export default function FooterSection() {
                                 </List>
                             </Center>
                         </Grid.Col>
-                        <Grid.Col md={3}>
+                        <Grid.Col md={3} data-Aos="zoom-in">
 
 
                             <Center>
@@ -186,7 +158,7 @@ export default function FooterSection() {
                                 </List>
                             </Center>
                         </Grid.Col>
-                        <Grid.Col md={3}>
+                        <Grid.Col md={3} data-Aos="zoom-in">
 
 
                             <Center>
@@ -224,3 +196,38 @@ export default function FooterSection() {
         </>
     )
 }
+
+const useStyle = createStyles((theme) => ({
+    formBox: {
+        background: "#ff5829",
+
+        color: "#fff",
+
+    },
+    contact: {
+        // padding: "15%",
+        background: "#ff5829",
+        color: "#fff",
+
+    },
+    textCenter: {
+        height: "100%",
+        // background: "red",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+
+
+    },
+    mainText: {
+        fontSize: "350%",
+        verticalAlign: "middle",
+        fontWeight: 700,
+    },
+
+    formSection: {
+        height: "100%",
+        // width: "50%",
+        // background: "red"
+    }
+}))
