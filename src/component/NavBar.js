@@ -91,7 +91,7 @@ export default function NavBar() {
                                                 <List>
 
                                                     <List.Item>
-                                                        <NavLink to="/" className={classes.drawerItem}> Home</NavLink>
+                                                        <NavLink to="/" className={classes.drawerItem} > Home</NavLink>
                                                     </List.Item>
                                                     <List.Item>
                                                         <NavLink to="/about" className={classes.drawerItem}> About</NavLink>
@@ -189,9 +189,10 @@ const useStyle = createStyles((theme) => ({
         textAlign: "center",
         color: "#fff",
 
+     
         "&:hover": {
             color: "#FF5829"
-        }
+        },
     },
 
     drawerItem: {
