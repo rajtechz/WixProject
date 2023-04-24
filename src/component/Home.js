@@ -184,7 +184,7 @@ export default function Home() {
                                 </Center>
                             </Box>
                             <Box style={{
-                                // height: "50vh",
+           
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "center",
@@ -204,7 +204,6 @@ export default function Home() {
         </>
     )
 }
-
 const useStyle = createStyles((theme) => ({
 
     bgVideo: {

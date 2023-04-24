@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { useForm, isNotEmpty, isEmail, matchesField, hasLength } from '@mantine/form';
 import {
 
     Text,
@@ -16,13 +17,73 @@ import {
 } from '@mantine/core';
 import Aos from 'aos';
 import "aos/dist/aos.css"
+import { IconEyeCheck, IconEyeOff } from '@tabler/icons-react';
+import { color } from 'framer-motion';
 
 export default function FooterSection() {
-    useEffect(()=>{
-        Aos.init({duration :2000})
+    useEffect(() => {
+        Aos.init({ duration: 2000 })
 
-    },[])
+    }, [])
     const { classes } = useStyle()
+
+
+    const form = useForm({
+        initialValues: {
+            first_name: '',
+            last_name: '',
+            email: '',
+            password: "",
+            confirm_password: "",
+        },
+        validate: {
+            first_name: (value) => {
+                if (!value) return 'This field is required';
+                return true;
+            },
+            first_name: (value) => {
+                const regex = /^[a-zA-Z\s]+$/;
+                if (!value) {
+                    return 'First name is required';
+                }
+                else if (value.length < 2 || value.length > 20) {
+                    return 'Field length must be between 2 and 20 characters';
+                }
+                else if (value[0] === ' ') {
+                    return 'First name cannot start with a space';
+                } else if (!regex.test(value)) {
+                    return 'First name can only contain letters and spaces';
+                } else {
+                    return null;
+                }
+            },
+
+            last_name: (value) => {
+                const regex = /^[a-zA-Z\s]+$/;
+                if (!value) {
+                    return 'Last name is required';
+                } else if (value.length < 2 || value.length > 20) {
+                    return 'Field length must be between 2 and 20 characters';
+                } else if (value[0] === ' ') {
+                    return 'Last name cannot start with a space';
+                } else if (!regex.test(value)) {
+                    return 'Last name can only contain letters and spaces';
+                } else {
+                    return null;
+                }
+            },
+
+            email: (value) => (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value) ? null : 'Invalid email'),
+
+            // password: isNotEmpty('Password can not be empty'),
+            password: (value) => (/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(value) ? null : 'Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character'),
+
+            confirm_password: matchesField('password', 'Passwords are not the same'),
+
+
+        },
+    });
+
     return (
         <>
             <Box className={classes.formBox}>
@@ -42,35 +103,71 @@ export default function FooterSection() {
                                         <Grid.Col md={6} lg={6} data-Aos="fade-up">
 
 
-                                            <Box mt="lg" mx="auto" >
+                                            <Box mt="lg" mx="auto" component="form" onSubmit={form.onSubmit((value) => form.reset(console.log(value)))}>
                                                 <Grid>
 
                                                     <Grid.Col md={12} lg={12} sm={12}>
-                                                        <TextInput label={<Text className='label-text'>First Name</Text>} placeholder="Enter First Name"
+                                                        <TextInput label={<Text >First Name</Text>} placeholder="Enter First Name"
+                                                            {...form.getInputProps('first_name')}
+
+                                                            error={form.errors.first_name}
+                                                            styles={{
+                                                                error: {
+                                                                    color: "black",
+                                                                },
+                                                            }}
                                                             size="md" />
                                                     </Grid.Col>
                                                     <Grid.Col md={12} lg={12} sm={12}>
 
-                                                        <TextInput label={<Text className='label-text'>Last Name</Text>} placeholder="Enter Last Name"
+                                                        <TextInput label={<Text >Last Name</Text>} placeholder="Enter Last Name"
+                                                            {...form.getInputProps('last_name')}
+                                                            error={form.errors.last_name}
+                                                            styles={{
+                                                                error: {
+                                                                    color: "black",
+                                                                },
+                                                            }}
                                                             size="md"
                                                         />
                                                     </Grid.Col>
 
 
                                                     <Grid.Col>
-                                                        <TextInput label={<Text className='label-text'>Email</Text>} placeholder="Enter your email"
+                                                        <TextInput label={<Text >Email</Text>} placeholder="Enter your email"
+                                                            {...form.getInputProps('email')}
+                                                            error={form.errors.email}
+                                                            styles={{
+                                                                error: {
+                                                                    color: "black",
+                                                                },
+                                                            }}
                                                             size="md"
                                                         />
                                                     </Grid.Col>
 
 
                                                     <Grid.Col md={6} lg={6} sm={12}>
-                                                        <PasswordInput label={<Text className='label-text'>Password</Text>} placeholder="Password"
-
+                                                        <PasswordInput label={<Text >Password</Text>} placeholder="Password"
+                                                            {...form.getInputProps('password')}
+                                                     
+                                                            error={form.errors.password}
+                                                            styles={{
+                                                                error: {
+                                                                    color: "black",
+                                                                },
+                                                            }}
                                                         />
                                                     </Grid.Col>
                                                     <Grid.Col md={6} lg={6} sm={12}>
-                                                        <PasswordInput label={<Text className='label-text'>New Password</Text>} placeholder="Confirm Password"
+                                                        <PasswordInput label={<Text >Confirm Password</Text>} placeholder="Confirm Password"
+                                                            {...form.getInputProps('confirm_password')}
+                                                            error={form.errors.confirm_password}
+                                                            styles={{
+                                                                error: {
+                                                                    color: "black",
+                                                                },
+                                                            }}
 
                                                         />
                                                     </Grid.Col>
@@ -102,12 +199,12 @@ export default function FooterSection() {
 
                                         <Text sx={(theme) => ({ fontSize: "30px", fontWeight: 700, color: "#ff5829", })}>LOGO</Text>
                                     </Center>
-                                    
 
-                                        <List.Item>Licence Number: 123-456-7890</List.Item>
-                                        <List.Item >© 2035 by Fly Right Movers.</List.Item>
-                                        <List.Item>power and secured by WX</List.Item>
-                                    
+
+                                    <List.Item>Licence Number: 123-456-7890</List.Item>
+                                    <List.Item >© 2035 by Fly Right Movers.</List.Item>
+                                    <List.Item>power and secured by WX</List.Item>
+
                                 </List>
                             </Center>
                         </Grid.Col>
